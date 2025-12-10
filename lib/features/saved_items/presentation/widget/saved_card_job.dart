@@ -14,7 +14,7 @@ class SavedJobCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: Colors.blue.shade50,
+        color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: Column(
@@ -25,7 +25,7 @@ class SavedJobCard extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
                 decoration: BoxDecoration(
-                  color: Color(0xffE3D7FF),
+                  color: Color(0xffE3D7FF).withOpacity(0.4),
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Text(item.status ?? ''),

@@ -6,8 +6,9 @@ import 'package:top_max_task/gen/assets.gen.dart';
 class TypeChip extends StatelessWidget {
   final String label;
   final bool selected;
+  final bool isCourse;
   final VoidCallback onTap;
-  const TypeChip({super.key, required this.label, required this.selected, required this.onTap, });
+  const TypeChip({super.key, required this.label, required this.selected, required this.onTap, required this.isCourse, });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class TypeChip extends StatelessWidget {
       child: ChoiceChip(
       side: BorderSide(color: Colors.transparent),
       showCheckmark: false,
-       avatar:SvgPicture.asset(MyAssets.images.svg.bookmarkColored.path),
+       avatar:isCourse?SvgPicture.asset(MyAssets.images.svg.savedCourse.path):SvgPicture.asset(MyAssets.images.svg.bookmarkColored.path),
         selectedColor:AppColors.primaryColor ,
         labelStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(color:selected? AppColors.whiteColor:AppColors.primaryColor,fontWeight: FontWeight.w600),
         label: Text(label),

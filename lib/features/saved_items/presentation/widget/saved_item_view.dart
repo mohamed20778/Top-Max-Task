@@ -53,6 +53,7 @@ class _SavedItemsViewState extends State<SavedItemsView> {
                 children: [
                   Expanded(
                     child: TypeChip(
+                      isCourse: false,
                       label: 'Saved Jobs',
                       selected: _type == 'jobs',
                       onTap: () {
@@ -64,7 +65,7 @@ class _SavedItemsViewState extends State<SavedItemsView> {
                   SizedBox(width: 8.w),
                   Expanded( 
                     child: TypeChip(
-                      
+                      isCourse: true,
                       label: 'Saved Courses',
                       selected: _type == 'courses',
                       onTap: () {
@@ -82,7 +83,7 @@ class _SavedItemsViewState extends State<SavedItemsView> {
                       return const Center(child: CircularProgressIndicator(color: AppColors.primaryColor,));
                     }
                     if (state is SavedItemsError) {
-                      return Center(child: Text("Some Thing went Wrong"));
+                      return Center(child: Text("SomeThing went Wrong"));
                     }
                     if (state is SavedItemsSuccess) {
                       if (state.items.isEmpty) {

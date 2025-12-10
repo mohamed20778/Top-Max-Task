@@ -35,11 +35,7 @@ class HomeChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric( vertical: 6.h),
-      decoration: BoxDecoration(
-        color: filled ? Colors.grey.shade100 : Colors.white,
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: Colors.grey.shade300),
-      ),
+     
       child: Text(
         text,
         style: Theme.of(context)
