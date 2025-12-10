@@ -8,7 +8,8 @@ import 'package:top_max_task/utils/app-logger.dart';
 part 'generate_otp_state.dart';
 
 class GenerateOtpCubit extends Cubit<GenerateOtpState> {
-  final PhoneController phoneNumberController = PhoneController();
+  final PhoneController phoneNumberController =
+      PhoneController(initialValue: PhoneNumber.parse('+971'));
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final GenerateOtpRepo generateOtpRepo;
   GenerateOtpCubit({required this.generateOtpRepo}) : super(GenerateOtpInitial());
