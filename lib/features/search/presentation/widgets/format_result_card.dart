@@ -8,7 +8,7 @@ import 'package:top_max_task/features/search/presentation/widgets/bookmark_butto
 class JobResultCard extends StatelessWidget {
   final SearchJobItemModel job;
 
-  const JobResultCard({required this.job});
+  const JobResultCard({super.key, required this.job});
 
   @override
   Widget build(BuildContext context) {

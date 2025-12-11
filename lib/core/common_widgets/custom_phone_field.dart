@@ -24,7 +24,6 @@ class CustomPhoneField extends StatelessWidget {
   final String? Function(PhoneNumber?)? validator;
   @override
   Widget build(BuildContext context) {
-    final currentLocale = Localizations.localeOf(context);
     return ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: hPadding.h),
       title: lable != null

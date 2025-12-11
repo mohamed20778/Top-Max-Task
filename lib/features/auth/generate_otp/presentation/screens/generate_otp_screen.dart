@@ -7,7 +7,7 @@ import 'package:top_max_task/features/auth/generate_otp/presentation/widgets/gen
 import '../../data/repo/generate_otp_repo.dart';
 
 class GenerateOtpScreen extends StatelessWidget {
-  const GenerateOtpScreen({Key? key}) : super(key: key);
+  const GenerateOtpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

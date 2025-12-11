@@ -5,7 +5,7 @@ import 'package:top_max_task/features/search/presentation/widgets/pill_button.da
 class QuickFilterSection extends StatelessWidget {
   final ValueChanged<int> onFilterTap;
 
-  const QuickFilterSection({required this.onFilterTap});
+  const QuickFilterSection({super.key, required this.onFilterTap});
 
   @override
   Widget build(BuildContext context) {
