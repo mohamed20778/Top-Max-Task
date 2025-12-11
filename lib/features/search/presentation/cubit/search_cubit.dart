@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:top_max_task/features/search/data/repo/search_repo.dart';
 import 'package:top_max_task/features/search/presentation/cubit/search_state.dart';
@@ -5,12 +6,38 @@ import 'package:top_max_task/features/search/presentation/cubit/search_state.dar
 
 class SearchCubit extends Cubit<SearchState> {
   final SearchRepo searchRepo;
+  Timer? _debounce;
 
   SearchCubit({required this.searchRepo}) : super(SearchInitial());
+
+  @override
+  Future<void> close() {
+    _debounce?.cancel();
+    return super.close();
+  }
 
 
   void resetSearch() {
     emit(SearchInitial());
+  }
+
+
+  void onKeywordChanged({
+    required String keyword,
+    String? jobType,
+  }) {
+    final trimmed = keyword.trim();
+
+    _debounce?.cancel();
+
+    if (trimmed.isEmpty) {
+      emit(SearchInitial());
+      return;
+    }
+
+    _debounce = Timer(const Duration(milliseconds: 400), () {
+      searchJobs(keyword: trimmed, jobType: jobType);
+    });
   }
 
 
@@ -92,10 +119,9 @@ class SearchCubit extends Cubit<SearchState> {
       final newPagination = response.data?.pagination;
 
       if (newPagination == null) {
-        return; // Invalid response, keep current state
+        return; 
       }
 
-      // Append new jobs to existing list
       final updatedJobs = [...currentState.jobs, ...newJobs];
 
       emit(SearchSuccess(jobs: updatedJobs, pagination: newPagination));

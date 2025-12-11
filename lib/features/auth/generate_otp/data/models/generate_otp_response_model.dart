@@ -33,5 +33,7 @@ class GenerateOtpResponseModel with _$GenerateOtpResponseModel {
           throw UnimplementedError();
         }
       
+      
+      
 
 }

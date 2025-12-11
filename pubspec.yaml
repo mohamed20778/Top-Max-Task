@@ -40,7 +40,6 @@ dependencies:
   go_router: ^16.2.1
   injectable_generator: ^2.8.1
   logger: ^2.6.1
-  easy_localization: ^3.0.8
   bloc: ^9.0.0
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.2.3

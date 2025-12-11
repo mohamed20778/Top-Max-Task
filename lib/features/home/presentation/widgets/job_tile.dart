@@ -12,9 +12,10 @@ class JobTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12.w),
+      width: 400.w,
+      padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.primaryLightColor,
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: Colors.grey.shade200),
       ),
@@ -42,7 +43,7 @@ class JobTile extends StatelessWidget {
                 BookmarkButton(job: job),
               ],
             ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 15.h),
           Text(
             job.jobTitle ?? '',
             style: Theme.of(context)
@@ -50,7 +51,7 @@ class JobTile extends StatelessWidget {
                 .titleMedium
                 ?.copyWith(fontWeight: FontWeight.w700,fontSize: 20.sp),
           ),
-          SizedBox(height: 4.h),
+          SizedBox(height: 15.h),
           Text(
             job.companyName ?? '',
             style: Theme.of(context)
@@ -58,14 +59,14 @@ class JobTile extends StatelessWidget {
                 .bodySmall
                 ?.copyWith(color: AppColors.blackColor),
           ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 15.h),
           Wrap(
             spacing: 8.w,
             runSpacing: 6.h,
             children: [
-              HomeChip(job.formattedSalary ?? 'From AED  / month'),
-              HomeChip(job.jobType ?? '', filled: false),
-              HomeChip(job.locationPriority ?? '', filled: false),
+                  HomeChip(job.formattedSalary ?? 'From AED  / month',width: 169.w,height: 28.h,),
+              HomeChip(job.jobType ?? '', filled: false, width: 81.w, height: 28.h,),
+              HomeChip(job.locationPriority ?? '', filled: false, width: 74.w, height: 28.h,),
             ],
           ),
           SizedBox(height: 8.h),

@@ -26,11 +26,11 @@ class QuickFilterSection extends StatelessWidget {
           children: [
             PillButton(
               text: 'Jobs for People with Blindness',
-              onTap: () => onFilterTap(1), // Assuming disability ID 1 for blindness
+              onTap: () => onFilterTap(1), 
             ),
             PillButton(
               text: 'Jobs for People with Deafness',
-              onTap: () => onFilterTap(2), // Assuming disability ID 2 for deafness
+              onTap: () => onFilterTap(2),
             ),
           ],
         ),

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:top_max_task/core/constants/app_colors.dart';
 import 'package:top_max_task/features/home/data/models/home_response_model.dart';
 import 'package:top_max_task/features/home/presentation/cubit/home_cubit.dart';
 import 'package:top_max_task/features/home/presentation/cubit/home_state.dart';
 import 'package:top_max_task/features/home/presentation/widgets/featured_card.dart';
 import 'package:top_max_task/features/home/presentation/widgets/header.dart';
 import 'package:top_max_task/features/home/presentation/widgets/job_tile.dart';
+import 'package:top_max_task/features/home/presentation/widgets/recent_opening_card.dart';
 import 'package:top_max_task/features/home/presentation/widgets/section_tile.dart';
 
 class HomeContent extends StatelessWidget {
@@ -35,11 +37,11 @@ class HomeContent extends StatelessWidget {
               SectionTitle("Featured Jobs", action: "See More"),
               SizedBox(height: 8.h),
               if ((home?.featuredJobs ?? []).isNotEmpty)
-                FeaturedHorizontal(list: home!.featuredJobs!),
+                FeaturedHorizontal(list: home!.featuredJobs!,backgroundColor: AppColors.primaryLightColor,),
               SizedBox(height: 16.h),
               SectionTitle("Recent Openings", action: "See More"),
               SizedBox(height: 8.h),
-              FeaturedHorizontal(list: home!.recentOpenings!),
+              RecentOpeningHorizontal(list: home!.recentOpenings!,backgroundColor: Color(0xffBB5CA0).withOpacity(0.1),),
               SizedBox(height: 12.h),
               if ((home.disabilityJobs ?? []).isNotEmpty) ...[
                 SectionTitle("Disability Jobs", action: "See More"),

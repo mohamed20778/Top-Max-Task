@@ -36,6 +36,8 @@ class SavedItemsResponseModel with _$SavedItemsResponseModel {
           // TODO: implement toJson
           throw UnimplementedError();
         }
+      
+
 
 }
 
@@ -62,6 +64,8 @@ class SavedItemsDataModel with _$SavedItemsDataModel {
           // TODO: implement toJson
           throw UnimplementedError();
         }
+      
+
 
 }
 
@@ -123,68 +127,88 @@ class SavedItemModel with _$SavedItemModel {
         String? get createdAt => throw UnimplementedError();
       
         @override
+        // TODO: implement duration
         String? get duration => throw UnimplementedError();
       
         @override
+        // TODO: implement formattedSalary
         String? get formattedSalary => throw UnimplementedError();
       
         @override
+        // TODO: implement id
         int? get id => throw UnimplementedError();
       
         @override
+        // TODO: implement isFeatured
         bool? get isFeatured => throw UnimplementedError();
       
         @override
+        // TODO: implement isMultipleHires
         bool? get isMultipleHires => throw UnimplementedError();
       
         @override
+        // TODO: implement isSaved
         bool? get isSaved => throw UnimplementedError();
       
         @override
+        // TODO: implement isUrgent
         bool? get isUrgent => throw UnimplementedError();
       
         @override
+        // TODO: implement jobDescription
         String? get jobDescription => throw UnimplementedError();
       
         @override
+        // TODO: implement jobTitle
         String? get jobTitle => throw UnimplementedError();
       
         @override
+        // TODO: implement jobType
         String? get jobType => throw UnimplementedError();
       
         @override
+        // TODO: implement location
         String? get location => throw UnimplementedError();
       
         @override
+        // TODO: implement locationPriority
         String? get locationPriority => throw UnimplementedError();
       
         @override
+        // TODO: implement maxSalary
         num? get maxSalary => throw UnimplementedError();
       
         @override
+        // TODO: implement minSalary
         num? get minSalary => throw UnimplementedError();
       
         @override
+        // TODO: implement officeLocation
         String? get officeLocation => throw UnimplementedError();
       
         @override
+        // TODO: implement provider
         String? get provider => throw UnimplementedError();
       
         @override
+        // TODO: implement status
         String? get status => throw UnimplementedError();
       
         @override
+        // TODO: implement title
         String? get title => throw UnimplementedError();
       
         @override
         Map<String, dynamic> toJson() {
+          // TODO: implement toJson
           throw UnimplementedError();
         }
       
         @override
+        // TODO: implement type
         String? get type => throw UnimplementedError();
       
-
+   
 }
 
 @freezed
@@ -235,5 +259,7 @@ class SavedPaginationModel with _$SavedPaginationModel {
         @override
         // TODO: implement total
         int? get total => throw UnimplementedError();
+      
+     
 
 }

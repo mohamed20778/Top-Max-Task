@@ -49,9 +49,9 @@ class LargeCard extends StatelessWidget {
           Wrap(
             spacing: 8.w,
             children: [
-              HomeChip(job.formattedSalary ?? 'From AED  / month'),
-              HomeChip(job.jobType ?? '', filled: false),
-              HomeChip(job.locationPriority ?? '', filled: false),
+              HomeChip(job.formattedSalary ?? 'From AED  / month',width: 169.w,height: 28.h,),
+              HomeChip(job.jobType ?? '', filled: false, width: 81.w, height: 28.h,),
+              HomeChip(job.locationPriority ?? '', filled: false, width: 74.w, height: 28.h,),
             ],
           ),
           SizedBox(height: 10.h),

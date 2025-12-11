@@ -41,6 +41,9 @@ class $AssetsImagesSvgGen {
   SvgGenImage get bookmarkColored =>
       const SvgGenImage('assets/images/svg/Bookmark_colored.svg');
 
+  /// File path: assets/images/svg/Clock.svg
+  SvgGenImage get clock => const SvgGenImage('assets/images/svg/Clock.svg');
+
   /// File path: assets/images/svg/Wishlist.svg
   SvgGenImage get wishlist =>
       const SvgGenImage('assets/images/svg/Wishlist.svg');
@@ -66,6 +69,9 @@ class $AssetsImagesSvgGen {
 
   /// File path: assets/images/svg/more.svg
   SvgGenImage get more => const SvgGenImage('assets/images/svg/more.svg');
+
+  /// File path: assets/images/svg/pin 1.svg
+  SvgGenImage get pin1 => const SvgGenImage('assets/images/svg/pin 1.svg');
 
   /// File path: assets/images/svg/plus-hexagon 1.svg
   SvgGenImage get plusHexagon1 =>
@@ -93,6 +99,7 @@ class $AssetsImagesSvgGen {
   /// List of all assets
   List<SvgGenImage> get values => [
     bookmarkColored,
+    clock,
     wishlist,
     bookMark,
     figma,
@@ -100,6 +107,7 @@ class $AssetsImagesSvgGen {
     houseBackground,
     houseOutline,
     more,
+    pin1,
     plusHexagon1,
     plus,
     savedCourse,

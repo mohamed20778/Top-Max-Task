@@ -35,6 +35,10 @@ class _SearchHeaderState extends State<SearchHeader> {
 
   void _onSearchChanged() {
     setState(() {});
+    context.read<SearchCubit>().onKeywordChanged(
+          keyword: widget.searchController.text,
+          jobType: widget.selectedJobType,
+        );
   }
 
   @override
@@ -81,7 +85,10 @@ class _SearchHeaderState extends State<SearchHeader> {
                 ),
                 onSubmitted: (value) {
                   if (value.trim().isNotEmpty) {
-                    context.read<SearchCubit>().searchJobs(keyword: value.trim());
+                    context.read<SearchCubit>().searchJobs(
+                          keyword: value.trim(),
+                          jobType: widget.selectedJobType,
+                        );
                   }
                 },
               ),
@@ -93,8 +100,15 @@ class _SearchHeaderState extends State<SearchHeader> {
             ),
             JobTypeDropdown(
               selectedValue: widget.selectedJobType,
-              onChanged: widget.onJobTypeChanged,
+              onChanged: (value) {
+                widget.onJobTypeChanged(value);
+                context.read<SearchCubit>().onKeywordChanged(
+                      keyword: widget.searchController.text,
+                      jobType: value,
+                    );
+              },
             ),
+    
           ],
         ),
       ),
