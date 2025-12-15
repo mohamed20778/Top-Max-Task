@@ -47,10 +47,11 @@ class _SearchHeaderState extends State<SearchHeader> {
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
      
       child: Container(
+        height: 50.h,
         padding: EdgeInsets.symmetric(horizontal: 12.w),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(50.r),
           border: Border.all(color: Colors.grey.shade200),
         ),
         child: Row(
@@ -83,11 +84,7 @@ class _SearchHeaderState extends State<SearchHeader> {
                 },
               ),
             ),
-            Container(
-              height: 32.h,
-              width: 1,
-              color: Colors.grey.shade300,
-            ),
+            
             JobTypeDropdown(
               selectedValue: widget.selectedJobType,
               onChanged: (value) {

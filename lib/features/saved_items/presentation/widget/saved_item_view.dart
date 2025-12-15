@@ -40,74 +40,89 @@ class _SavedItemsViewState extends State<SavedItemsView> {
         }
       },
       child: Scaffold(
-        appBar: AppBar(
-          title:  Text('Bookmarks',style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w600),),
-          centerTitle: true,
-        ),
-        body: RefreshIndicator(
-          onRefresh: ()=>cubit.getSavedItems(_type),
-          color: AppColors.primaryColor,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: TypeChip(
-                      isCourse: false,
-                      label: 'Saved Jobs',
-                      selected: _type == 'jobs',
-                      onTap: () {
-                        setState(() => _type = 'jobs');
-                        context.read<SavedItemsCubit>().getSavedItems('jobs');
-                      },
-                    ),
-                  ),
-                  SizedBox(width: 8.w),
-                  Expanded( 
-                    child: TypeChip(
-                      isCourse: true,
-                      label: 'Saved Courses',
-                      selected: _type == 'courses',
-                      onTap: () {
-                        setState(() => _type = 'courses');
-                        context.read<SavedItemsCubit>().getSavedItems('courses');
-                      },
-                    ),
-                  ),
-                ],
-              ),
-              Expanded(
-                child: BlocBuilder<SavedItemsCubit, SavedItemsState>(
-                  builder: (context, state) {
-                    if (state is SavedItemsLoading) {
-                      return const Center(child: CircularProgressIndicator(color: AppColors.primaryColor,));
-                    }
-                    if (state is SavedItemsError) {
-                      return Center(child: Text("SomeThing went Wrong"));
-                    }
-                    if (state is SavedItemsSuccess) {
-                      if (state.items.isEmpty) {
-                        return const Center(child: Text('No saved items'));
-                      }
-                      return ListView.separated(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-                        itemCount: state.items.length,
-                        separatorBuilder: (_, __) => SizedBox(height: 12.h),
-                        itemBuilder: (context, index) {
-                          final item = state.items[index] as SavedItemModel;
-                          final type = item.type ?? _type;
-                          if (type == 'courses') {
-                            return SavedCourseCard(item: item);
-                          }
-                          return SavedJobCard(item: item);
+       
+        body: Container(
+          decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(25),
+    gradient: LinearGradient(
+      colors: [
+        Color(0xffC5D9FF),
+        AppColors.primaryLightColor,
+        AppColors.whiteColor, 
+      
+         
+      ],
+      begin: Alignment.topCenter, 
+    ),
+  ),
+          child: RefreshIndicator(
+            onRefresh: ()=>cubit.getSavedItems(_type),
+            color: AppColors.primaryColor,
+            child: Column(
+              children: [
+                SizedBox(height: 40.h,),
+                Text('Bookmarks',style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w600),),
+                SizedBox(height: 26.h,),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TypeChip(
+                        isCourse: false,
+                        label: 'Saved Jobs',
+                        selected: _type == 'jobs',
+                        onTap: () {
+                          setState(() => _type = 'jobs');
+                          context.read<SavedItemsCubit>().getSavedItems('jobs');
                         },
-                      );
-                    }
-                    return const SizedBox.shrink();
-                  },
+                      ),
+                    ),
+                    SizedBox(width: 8.w),
+                    Expanded( 
+                      child: TypeChip(
+                        isCourse: true,
+                        label: 'Saved Courses',
+                        selected: _type == 'courses',
+                        onTap: () {
+                          setState(() => _type = 'courses');
+                          context.read<SavedItemsCubit>().getSavedItems('courses');
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
+                Expanded(
+                  child: BlocBuilder<SavedItemsCubit, SavedItemsState>(
+                    builder: (context, state) {
+                      if (state is SavedItemsLoading) {
+                        return const Center(child: CircularProgressIndicator(color: AppColors.primaryColor,));
+                      }
+                      if (state is SavedItemsError) {
+                        return Center(child: Text("SomeThing went Wrong"));
+                      }
+                      if (state is SavedItemsSuccess) {
+                        if (state.items.isEmpty) {
+                          return const Center(child: Text('No saved items'));
+                        }
+                        return ListView.separated(
+                          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                          itemCount: state.items.length,
+                          separatorBuilder: (_, __) => SizedBox(height: 12.h),
+                          itemBuilder: (context, index) {
+                            final item = state.items[index] as SavedItemModel;
+                            final type = item.type ?? _type;
+                            if (type == 'courses') {
+                              return SavedCourseCard(item: item);
+                            }
+                            return SavedJobCard(item: item);
+                          },
+                        );
+                      }
+                      return const SizedBox.shrink();
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
