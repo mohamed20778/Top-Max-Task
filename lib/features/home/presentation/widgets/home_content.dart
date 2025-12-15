@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:top_max_task/core/common_widgets/custom_form_field.dart';
 import 'package:top_max_task/core/constants/app_colors.dart';
 import 'package:top_max_task/features/home/data/models/home_response_model.dart';
 import 'package:top_max_task/features/home/presentation/cubit/home_cubit.dart';
@@ -34,7 +35,8 @@ class HomeContent extends StatelessWidget {
             children: [
               Header(),
               SizedBox(height: 20.h),
-
+              CustomTextField(label: "search", controller: TextEditingController()),
+              SizedBox(height: 40.h,),
               if ((home?.disabilityJobs ?? []).isNotEmpty) ...[
                 SectionTitle("Jobs for Special Abilities", action: "See More"),
                 SizedBox(height: 20.h),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:top_max_task/gen/assets.gen.dart';
 
-import '../constants/app_colors.dart' show AppColors;
+import '../constants/app_colors.dart' show AppColors, greyColor;
 
 class CustomTextField extends StatelessWidget {
   final String label;
@@ -19,33 +21,32 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style:  Theme.of(context).textTheme.titleMedium!.copyWith(color: (AppColors.primaryColor)),
-        ),
-         SizedBox(height: 8.h),
-        TextField(
-          controller: controller,
-          obscureText: isPassword,
-          keyboardType: keyboardType,
-          decoration: const InputDecoration(
-            border: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey),
+    return SizedBox(
+      height: 50.h,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextFormField(
+            controller: controller,
+            obscureText: isPassword,
+            keyboardType: keyboardType,
+            decoration:  InputDecoration(
+              prefixIcon: Icon(Icons.search_outlined),
+              hint:Text("Search for jobs and courses"),
+              border: OutlineInputBorder(borderRadius:BorderRadius.circular(50) ,borderSide: BorderSide(
+                color: Color(0xffCAC9C9)
+              )),
+              focusedBorder:OutlineInputBorder(borderRadius:BorderRadius.circular(50) ,borderSide: BorderSide(
+                color:  Color(0xffCAC9C9)
+              )),
+              enabledBorder: OutlineInputBorder(borderRadius:BorderRadius.circular(50) ,borderSide: BorderSide(
+                color: Color(0xffCAC9C9)
+              )),
             ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF208D7F)),
-            ),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey),
-            ),
-            contentPadding: EdgeInsets.only(bottom: 8),
+            style: Theme.of(context).textTheme.titleMedium,
           ),
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
