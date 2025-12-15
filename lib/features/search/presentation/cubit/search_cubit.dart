@@ -126,8 +126,7 @@ class SearchCubit extends Cubit<SearchState> {
 
       emit(SearchSuccess(jobs: updatedJobs, pagination: newPagination));
     } catch (e) {
-      // On error, keep current state (don't emit error to avoid losing current results)
-      // You can optionally emit a partial error state here
+      
     }
   }
 }

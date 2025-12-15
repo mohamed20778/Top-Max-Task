@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart' hide Badge;
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:top_max_task/core/constants/app_colors.dart';
 import 'package:top_max_task/features/home/presentation/cubit/home_cubit.dart';
 import 'package:top_max_task/features/home/presentation/cubit/home_state.dart';
 import 'package:top_max_task/features/home/presentation/widgets/home_content.dart';
@@ -22,20 +23,35 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: BlocBuilder<HomeCubit, HomeState>(
-          builder: (context, state) {
-            if (state is HomeLoading) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            if (state is HomeFailed) {
-              return Center(child: Text(state.message));
-            }
-            if (state is HomeSuccess) {
-              return HomeContent(data: state.data);
-            }
-            return const SizedBox.shrink();
-          },
+      body: Container(
+         decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(25),
+    gradient: LinearGradient(
+      colors: [
+        Color(0xffC5D9FF),
+        AppColors.primaryLightColor,
+        AppColors.whiteColor, 
+      
+         
+      ],
+      begin: Alignment.topCenter, 
+    ),
+  ),
+        child: SafeArea(
+          child: BlocBuilder<HomeCubit, HomeState>(
+            builder: (context, state) {
+              if (state is HomeLoading) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (state is HomeFailed) {
+                return Center(child: Text(state.message));
+              }
+              if (state is HomeSuccess) {
+                return HomeContent(data: state.data);
+              }
+              return const SizedBox.shrink();
+            },
+          ),
         ),
       ),
     );

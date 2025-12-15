@@ -4,6 +4,7 @@ import 'package:top_max_task/core/constants/app_colors.dart';
 import 'package:top_max_task/features/home/data/models/home_response_model.dart';
 import 'package:top_max_task/features/home/presentation/widgets/bookmark_button.dart';
 import 'package:top_max_task/features/home/presentation/widgets/home_chip_badge.dart';
+import 'package:top_max_task/features/home/presentation/widgets/recent_opening_card.dart';
 
 class FeaturedHorizontal extends StatelessWidget {
   final List<JobItemModel> list;
@@ -20,7 +21,7 @@ class FeaturedHorizontal extends StatelessWidget {
         separatorBuilder: (_, __) => SizedBox(width: 12.w),
         itemBuilder: (context, index) {
           final job = list[index];
-          return FeatureCard(job: job, backgroundColor: backgroundColor);
+          return RecentOpeningCard(job: job, backgroundColor: backgroundColor);
         },
       ),
     );

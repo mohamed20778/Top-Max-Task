@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:top_max_task/core/constants/app_colors.dart';
 import 'package:top_max_task/core/di/di.dart';
 import 'package:top_max_task/features/search/data/repo/search_repo.dart';
 import 'package:top_max_task/features/search/presentation/cubit/search_cubit.dart';
@@ -41,55 +42,71 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
       ],
       child: Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
-          child: Column(
-            children: [
-              SearchHeader(
-                searchController: _searchController,
-                selectedJobType: _selectedJobType,
-                onJobTypeChanged: (value) {
-                  setState(() {
-                    _selectedJobType = value;
-                  });
-                },
-              ),
-              Expanded(
-                child: BlocBuilder<SearchCubit, SearchState>(
-                  builder: (context, state) {
-                    final hasSearched = state is! SearchInitial;
-                    
-                    return SingleChildScrollView(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          if (!hasSearched) ...[
-                            PopularSearchesSection(
-                              onSearchTap: (keyword) {
-                                _searchController.text = keyword;
-                                context.read<SearchCubit>().searchJobs(keyword: keyword);
-                              },
-                            ),
-                            SizedBox(height: 24.h),
-                            QuickFilterSection(
-                              onFilterTap: (disabilityId) {
-                                context.read<SearchCubit>().searchJobs(disability: disabilityId);
-                              },
-                            ),
-                            SizedBox(height: 24.h),
-                          ],
-                          SearchResultsSection(
-                            searchController: _searchController,
-                            selectedJobType: _selectedJobType,
-                          ),
-                        ],
-                      ),
-                    );
+        
+        body: Container(
+          decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(25),
+    gradient: LinearGradient(
+      colors: [
+        Color(0xffC5D9FF),
+        AppColors.primaryLightColor,
+        AppColors.whiteColor, 
+      
+         
+      ],
+      begin: Alignment.topCenter, 
+    ),
+  ),
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SearchHeader(
+                  searchController: _searchController,
+                  selectedJobType: _selectedJobType,
+                  onJobTypeChanged: (value) {
+                    setState(() {
+                      _selectedJobType = value;
+                    });
                   },
                 ),
-              ),
-            ],
+                Expanded(
+                  child: BlocBuilder<SearchCubit, SearchState>(
+                    builder: (context, state) {
+                      final hasSearched = state is! SearchInitial;
+                      
+                      return SingleChildScrollView(
+                        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            if (!hasSearched) ...[
+                              PopularSearchesSection(
+                                onSearchTap: (keyword) {
+                                  _searchController.text = keyword;
+                                  context.read<SearchCubit>().searchJobs(keyword: keyword);
+                                },
+                              ),
+                              SizedBox(height: 24.h),
+                              QuickFilterSection(
+                                onFilterTap: (disabilityId) {
+                                  context.read<SearchCubit>().searchJobs(disability: disabilityId);
+                                },
+                              ),
+                              SizedBox(height: 24.h),
+                            ],
+                            SearchResultsSection(
+                              searchController: _searchController,
+                              selectedJobType: _selectedJobType,
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

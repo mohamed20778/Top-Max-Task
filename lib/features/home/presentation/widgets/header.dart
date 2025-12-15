@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_max_task/core/constants/app_colors.dart';
 import 'package:top_max_task/gen/assets.gen.dart';
 
@@ -11,7 +12,13 @@ class Header extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         Image.asset(MyAssets.images.png.figma.path),
+         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: [
+             Image.asset(MyAssets.images.png.figma.path),
+             SvgPicture.asset(MyAssets.images.svg.bill.path)
+           ],
+         ),
          SizedBox(height: 22.h,),  
         RichText(
   text: TextSpan(

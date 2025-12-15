@@ -52,15 +52,12 @@ class HomeDataModel with _$HomeDataModel {
       _$HomeDataModelFromJson(json);
       
         @override
-        // TODO: implement disabilityJobs
         List<JobItemModel>? get disabilityJobs => throw UnimplementedError();
       
         @override
-        // TODO: implement featuredJobs
         List<JobItemModel>? get featuredJobs => throw UnimplementedError();
       
         @override
-        // TODO: implement recentOpenings
         List<JobItemModel>? get recentOpenings => throw UnimplementedError();
       
         @override

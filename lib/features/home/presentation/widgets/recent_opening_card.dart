@@ -4,8 +4,7 @@ import 'package:top_max_task/core/constants/app_colors.dart';
 import 'package:top_max_task/features/home/data/models/home_response_model.dart';
 import 'package:top_max_task/features/home/presentation/widgets/bookmark_button.dart';
 import 'package:top_max_task/features/home/presentation/widgets/home_chip_badge.dart';
-import 'package:top_max_task/gen/assets.gen.dart';
-import 'package:top_max_task/gen/fonts.gen.dart';
+
 
 class RecentOpeningHorizontal extends StatelessWidget {
   final List<JobItemModel> list;

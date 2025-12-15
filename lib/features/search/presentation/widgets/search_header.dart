@@ -45,16 +45,7 @@ class _SearchHeaderState extends State<SearchHeader> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            AppColors.primaryColor.withOpacity(0.1),
-            Colors.white,
-          ],
-        ),
-      ),
+     
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12.w),
         decoration: BoxDecoration(
@@ -76,7 +67,6 @@ class _SearchHeaderState extends State<SearchHeader> {
                           icon: const Icon(Icons.clear, color: AppColors.greyColor),
                           onPressed: () {
                             widget.searchController.clear();
-                            // Reset to initial state to show popular searches and filters again
                             context.read<SearchCubit>().resetSearch();
                           },
                         )

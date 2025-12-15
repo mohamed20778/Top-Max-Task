@@ -48,6 +48,9 @@ class $AssetsImagesSvgGen {
   SvgGenImage get wishlist =>
       const SvgGenImage('assets/images/svg/Wishlist.svg');
 
+  /// File path: assets/images/svg/bill.svg
+  SvgGenImage get bill => const SvgGenImage('assets/images/svg/bill.svg');
+
   /// File path: assets/images/svg/book_mark.svg
   SvgGenImage get bookMark =>
       const SvgGenImage('assets/images/svg/book_mark.svg');
@@ -101,6 +104,7 @@ class $AssetsImagesSvgGen {
     bookmarkColored,
     clock,
     wishlist,
+    bill,
     bookMark,
     figma,
     generateOtpLogo,

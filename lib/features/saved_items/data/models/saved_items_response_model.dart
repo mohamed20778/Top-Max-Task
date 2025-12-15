@@ -37,8 +37,6 @@ class SavedItemsResponseModel with _$SavedItemsResponseModel {
           throw UnimplementedError();
         }
       
-
-
 }
 
 @freezed
@@ -64,8 +62,6 @@ class SavedItemsDataModel with _$SavedItemsDataModel {
           // TODO: implement toJson
           throw UnimplementedError();
         }
-      
-
 
 }
 
@@ -259,7 +255,4 @@ class SavedPaginationModel with _$SavedPaginationModel {
         @override
         // TODO: implement total
         int? get total => throw UnimplementedError();
-      
-     
-
 }

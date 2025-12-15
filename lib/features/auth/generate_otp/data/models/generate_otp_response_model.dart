@@ -32,8 +32,4 @@ class GenerateOtpResponseModel with _$GenerateOtpResponseModel {
           // TODO: implement toJson
           throw UnimplementedError();
         }
-      
-      
-      
-
 }

@@ -14,7 +14,7 @@ class SavedJobCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: AppColors.whiteColor,
+        color: AppColors.primaryLightColor,
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: Column(

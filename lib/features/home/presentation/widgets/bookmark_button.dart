@@ -27,7 +27,7 @@ class _BookmarkButtonState extends State<BookmarkButton> {
         if (state is SaveJobSuccess && state.jobId == widget.job.id) {
           final saved = state.data.data?.isInWishlist;
           setState(() {
-            _isSaved = saved ?? !_isSaved; // flip if backend doesn’t return flag
+            _isSaved = saved ?? !_isSaved; 
           });
           showToast(
             message: state.data.message ?? 'Wishlist updated',

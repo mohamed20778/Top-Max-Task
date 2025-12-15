@@ -25,21 +25,24 @@ class JobTile extends StatelessWidget {
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Wrap(
-                  spacing: 6.w,
-                  runSpacing: 6.h,
-                  children: [
-                    if (job.isUrgent == true)
-                      HomeBadge("Urgent",
-                          color: Colors.red.shade100, textColor: Colors.red),
-                    if (job.isMultipleHires == true)
-                      HomeBadge("Hiring Multiple Candidates",
-                          color: Colors.green.shade100,
-                          textColor: Colors.green.shade800),
-                    if (job.isFeatured == true)
-                      HomeBadge("Featured", color: Colors.blue.shade100),
-                  ],
+                Expanded(
+                  child: Wrap(
+                    spacing: 6.w,
+                    runSpacing: 6.h,
+                    children: [
+                      if (job.isUrgent == true)
+                        HomeBadge("Urgent",
+                            color: Colors.red.shade100, textColor: Colors.red),
+                      if (job.isMultipleHires == true)
+                        HomeBadge("Hiring Multiple Candidates",
+                            color: Colors.green.shade100,
+                            textColor: Colors.green.shade800),
+                      if (job.isFeatured == true)
+                        HomeBadge("Featured", color: Colors.blue.shade100),
+                    ],
+                  ),
                 ),
+                SizedBox(width: 8.w),
                 BookmarkButton(job: job),
               ],
             ),

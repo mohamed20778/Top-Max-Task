@@ -17,6 +17,7 @@ class TypeChip extends StatelessWidget {
         color: selected?AppColors.primaryColor:AppColors.whiteColor
       ),
       child: ChoiceChip(
+        backgroundColor: AppColors.whiteColor,
       side: BorderSide(color: Colors.transparent),
       showCheckmark: false,
        avatar:isCourse?SvgPicture.asset(MyAssets.images.svg.savedCourse.path):SvgPicture.asset(MyAssets.images.svg.bookmarkColored.path),
