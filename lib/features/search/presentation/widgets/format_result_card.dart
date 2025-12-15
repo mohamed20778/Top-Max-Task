@@ -13,9 +13,10 @@ class JobResultCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 261.h,
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color:AppColors.primaryLightColor,
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: Colors.grey.shade200),
       ),

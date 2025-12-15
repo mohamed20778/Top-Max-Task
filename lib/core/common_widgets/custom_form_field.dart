@@ -31,6 +31,7 @@ class CustomTextField extends StatelessWidget {
             obscureText: isPassword,
             keyboardType: keyboardType,
             decoration:  InputDecoration(
+              
               prefixIcon: Icon(Icons.search_outlined),
               hint:Text("Search for jobs and courses"),
               border: OutlineInputBorder(borderRadius:BorderRadius.circular(50) ,borderSide: BorderSide(
